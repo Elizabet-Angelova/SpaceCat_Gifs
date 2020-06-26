@@ -30,6 +30,7 @@ export const detailsFunction = (holder, el) => {
 
     iconHeart.addEventListener("click", () => {
         let check = localStorage.getItem("url")
+        if (check !== null){
         if (check.includes(el.id)) {
             iconHeart.style.transition = "font-size 0.3s ease-in-out"
             iconHeart.style.fontSize = "3rem"
@@ -54,6 +55,15 @@ export const detailsFunction = (holder, el) => {
             }, 300)
             storeFavorite(el)
         }
+    } else {
+        fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`)
+        .then(res => res.json())
+        .then((res) => {
+        storeFavorite(res) 
+    })
+       .catch(handleError)
+   
+}
         
     })
 
