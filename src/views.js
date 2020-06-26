@@ -2,7 +2,7 @@ import { containerTrending, apiKey, containers, buttons, showCat } from "./navig
 import { detailsFunction } from "./utils.js"
 
 export const containerSearch = document.getElementById("containerSearch")
-export const url = "http://api.giphy.com/v1/gifs/trending?api_key=rSd3cHCNr6UxIxDzSRKNeBNnkDqRRys0"
+export const url = "https://api.giphy.com/v1/gifs/trending?api_key=rSd3cHCNr6UxIxDzSRKNeBNnkDqRRys0"
 let offsetTrending = 25
 let offsetSearch = 25
 let fetchingTrending = false
