@@ -114,7 +114,7 @@ export const populateUploaded = () => {
 
 export const populateFavorites = () => {
     let arr = JSON.parse(localStorage.getItem("url"))
-    if (arr.length === 0 || arr === null) {
+    if (arr === null || arr.length === 0) {
         fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`)
         .then(res => res.json())
         .then((res) => {
