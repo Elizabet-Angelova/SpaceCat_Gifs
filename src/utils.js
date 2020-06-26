@@ -122,6 +122,7 @@ export const populateFavorites = () => {
         let imgRandom = document.getElementsByClassName('givFav')[0]
         imgRandom.setAttribute('src', randomSrc)
         arr.push(imgRandom);
+        arr.reverse()
         localStorage.setItem("url", JSON.stringify(arr));
         })
         .catch(handleError)
@@ -131,7 +132,7 @@ export const populateFavorites = () => {
         // imgRandom.style.borderRadius = "55px"
     }
 
-    arr.reverse()
+    
     for (let el of arr) {
         let imgHolder = document.createElement("div")
         imgHolder.classList.add("imgHolder")
