@@ -140,18 +140,18 @@ export const populateFavorites = () => {
     }
 
     arr.reverse()
-    for (let el of arr) {
+    for (let i = 0; i < arr.length; i++) {
         let imgHolder = document.createElement("div")
         imgHolder.classList.add("imgHolder")
         let gif = document.createElement("img")
-        gif.src = `https://media.giphy.com/media/${el.id}/giphy.gif`
-        gif.style.height = `${Number(el.images.fixed_height_downsampled.height)}px`
+        gif.src = `https://media.giphy.com/media/${arr[i].id}/giphy.gif`
+        gif.style.height = `${Number(arr[i].images.fixed_height_downsampled.height)}px`
 
-        if (Number(el.images.fixed_height_downsampled.width) - Number(el.images.fixed_height_downsampled.height) > 100) {
+        if (Number(arr[i].images.fixed_height_downsampled.width) - Number(arr[i].images.fixed_height_downsampled.height) > 100) {
             imgHolder.style.gridColumn = "span 2"
         }
         imgHolder.appendChild(gif)
-        imgHolder = detailsFunction(imgHolder, el)
+        imgHolder = detailsFunction(imgHolder, arr[i])
 
         $("#favoritesContainer").append(imgHolder)
     }
