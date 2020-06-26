@@ -113,6 +113,24 @@ export const populateUploaded = () => {
 }
 
 export const populateFavorites = () => {
+    if (localStorage.getItem("url") === null) {
+        arr = [];
+        fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`)
+        .then(res => res.json())
+        .then((res) => {
+        let randomSrc = `https://media.giphy.com/media/${res.data.id}/giphy.gif`
+        let imgRandom = document.getElementsByClassName('givFav')[0]
+        imgRandom.setAttribute('src', randomSrc)
+        arr.push(imgRandom);
+        localStorage.setItem("url", JSON.stringify(arr));
+        $("#favoritesContainer").empty()
+        })
+        
+        
+        .catch(handleError)
+    } 
+        
+
     let arr = JSON.parse(localStorage.getItem("url"))
     if (arr === null || arr.length === 0) {
         fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`)
@@ -122,8 +140,8 @@ export const populateFavorites = () => {
         let imgRandom = document.getElementsByClassName('givFav')[0]
         imgRandom.setAttribute('src', randomSrc)
         })
-        .catch(handleError)
-    } else {
+        .catch(handleError) }
+      else {
         let imgRandom = document.getElementsByClassName("givFav")[0]
         imgRandom.setAttribute("src", `https://media.giphy.com/media/${arr[arr.length-1].id}/giphy.gif`)
         // imgRandom.style.borderRadius = "55px"
