@@ -56,12 +56,7 @@ export const detailsFunction = (holder, el) => {
             storeFavorite(el)
         }
     } else {
-        fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`)
-        .then(res => res.json())
-        .then((res) => {
-        storeFavorite(res.data) 
-    })
-       .catch(handleError)
+        populateFavorites()
    
 }
         
