@@ -71,7 +71,12 @@ functionTrending(trendingBtn)
 if(localStorage.getItem('tasks') !== null) {
     populateUploaded()
 }
-populateFavorites()
+try {
+    populateFavorites()
+} catch(err){
+    console.log(err.message)
+}
+
 searchIcon.addEventListener("click", functionSearch)
 $("#inputSearch").keyup(function (event) {
     if (event.keyCode === 13) {
