@@ -37,8 +37,8 @@ export const detailsFunction = (holder, el) => {
                 iconHeart.style.fontSize = "1.5rem"
             }, 300)
             let arr = JSON.parse(localStorage.getItem("url"));
-            for (let i = 0; i < arr.length ; i++) {
-                if (arr[i].id === el.id){
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].id === el.id) {
                     arr.splice(i, 1)
                     break
                 }
@@ -54,7 +54,7 @@ export const detailsFunction = (holder, el) => {
             }, 300)
             storeFavorite(el)
         }
-        
+
     })
 
     holder.addEventListener("mouseover", () => {
@@ -78,7 +78,7 @@ export const storeTaskInLocalStorage = (data) => {
     } else {
         arr = JSON.parse(localStorage.getItem("tasks"));
     }
-    
+
     arr.push(data);
     localStorage.setItem("tasks", JSON.stringify(arr));
     database = arr.slice();
@@ -94,11 +94,12 @@ const storeFavorite = (data) => {
     } else {
         arr = JSON.parse(localStorage.getItem("url"));
     }
-        arr.push(data);
-        localStorage.setItem("url", JSON.stringify(arr));
-        $("#favoritesContainer").empty()
-        populateFavorites()
-    }
+    arr.push(data);
+    arr.reverse();
+    localStorage.setItem("url", JSON.stringify(arr));
+    $("#favoritesContainer").empty()
+    populateFavorites()
+}
 
 
 
@@ -115,26 +116,27 @@ export const populateUploaded = () => {
 export const populateFavorites = () => {
     let arr = JSON.parse(localStorage.getItem("url"))
     if (arr === null || arr.length === 0) {
-        arr = [];
         fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`)
-        .then(res => res.json())
-        .then((res) => {
-        let randomSrc = `https://media.giphy.com/media/${res.data.id}/giphy.gif`
-        let imgRandom = document.getElementsByClassName('givFav')[0]
-        imgRandom.setAttribute('src', randomSrc)
-        arr.push(imgRandom);
-        arr.reverse()
-        localStorage.setItem("url", JSON.stringify(arr));
-        })
-        .catch(handleError)
+            .then(res => res.json())
+            .then((res) => {
+                let randomSrc = `https://media.giphy.com/media/${res.data.id}/giphy.gif`
+                let imgRandom = document.getElementsByClassName('givFav')[0]
+                imgRandom.setAttribute('src', randomSrc)
+
+                let arr2 = [];
+                arr2 = JSON.parse(localStorage.getItem("url"));
+                arr2.push(imgRandom);
+                localStorage.setItem("url", JSON.stringify(arr2));
+                $("#favoritesContainer").empty()
+            })
+            .catch(handleError)
     } else {
         let imgRandom = document.getElementsByClassName("givFav")[0]
-        imgRandom.setAttribute("src", `https://media.giphy.com/media/${arr[arr.length-1].id}/giphy.gif`)
+        imgRandom.setAttribute("src", `https://media.giphy.com/media/${arr[arr.length - 1].id}/giphy.gif`)
         // imgRandom.style.borderRadius = "55px"
     }
 
-    let arr2 = JSON.parse(localStorage.getItem("url"))
-    if (arr2 && arr2.length !== 0) {
+
     for (let el of arr) {
         let imgHolder = document.createElement("div")
         imgHolder.classList.add("imgHolder")
@@ -150,5 +152,4 @@ export const populateFavorites = () => {
 
         $("#favoritesContainer").append(imgHolder)
     }
-}
 }
