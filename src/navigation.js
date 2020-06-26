@@ -67,14 +67,11 @@ const navigate = () => {
     }
 }
 navigate()
-try {
-    populateFavorites()
-} catch(err) {
-    alert(error.message)
-}
+populateFavorites()
+
 
 functionTrending(trendingBtn)
-if(localStorage.getItem('tasks') !== null) {
+if (localStorage.getItem('tasks') !== null) {
     populateUploaded()
 }
 
@@ -125,7 +122,7 @@ const functionUpload = async (ev) => {
         isThereFile.textContent = "No file chosen"
         fetchingUpload = false
 
-        
+
         gifPreview.innerHTML = `<img src="https://media.giphy.com/media/${CurrId}/giphy.gif">`
 
         setTimeout(function () {
