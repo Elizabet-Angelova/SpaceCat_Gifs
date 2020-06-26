@@ -67,14 +67,11 @@ const navigate = () => {
     }
 }
 navigate()
-populateFavorites()
-
-
 functionTrending(trendingBtn)
-if (localStorage.getItem('tasks') !== null) {
+if(localStorage.getItem('tasks') !== null) {
     populateUploaded()
 }
-
+populateFavorites()
 searchIcon.addEventListener("click", functionSearch)
 $("#inputSearch").keyup(function (event) {
     if (event.keyCode === 13) {
@@ -122,7 +119,7 @@ const functionUpload = async (ev) => {
         isThereFile.textContent = "No file chosen"
         fetchingUpload = false
 
-
+        
         gifPreview.innerHTML = `<img src="https://media.giphy.com/media/${CurrId}/giphy.gif">`
 
         setTimeout(function () {
