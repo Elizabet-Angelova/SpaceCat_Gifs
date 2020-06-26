@@ -136,7 +136,7 @@ export const populateFavorites = () => {
         // imgRandom.style.borderRadius = "55px"
     }
 
-
+if (arr) {
     for (let el of arr) {
         let imgHolder = document.createElement("div")
         imgHolder.classList.add("imgHolder")
@@ -152,4 +152,5 @@ export const populateFavorites = () => {
 
         $("#favoritesContainer").append(imgHolder)
     }
+}
 }
