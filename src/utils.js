@@ -59,7 +59,7 @@ export const detailsFunction = (holder, el) => {
         fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`)
         .then(res => res.json())
         .then((res) => {
-        storeFavorite(res) 
+        storeFavorite(res.data[0]) 
     })
        .catch(handleError)
    
@@ -140,18 +140,18 @@ export const populateFavorites = () => {
     }
 
     arr.reverse()
-    for (let i = 0; i < arr.length; i++) {
+    for (let el of arr) {
         let imgHolder = document.createElement("div")
         imgHolder.classList.add("imgHolder")
         let gif = document.createElement("img")
-        gif.src = `https://media.giphy.com/media/${arr[i].id}/giphy.gif`
-        gif.style.height = `${Number(arr[i].images.fixed_height_downsampled.height)}px`
+        gif.src = `https://media.giphy.com/media/${el.id}/giphy.gif`
+        gif.style.height = `${Number(el.images.fixed_height_downsampled.height)}px`
 
-        if (Number(arr[i].images.fixed_height_downsampled.width) - Number(arr[i].images.fixed_height_downsampled.height) > 100) {
+        if (Number(el.images.fixed_height_downsampled.width) - Number(el.images.fixed_height_downsampled.height) > 100) {
             imgHolder.style.gridColumn = "span 2"
         }
         imgHolder.appendChild(gif)
-        imgHolder = detailsFunction(imgHolder, arr[i])
+        imgHolder = detailsFunction(imgHolder, el)
 
         $("#favoritesContainer").append(imgHolder)
     }
