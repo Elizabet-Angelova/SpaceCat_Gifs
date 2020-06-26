@@ -126,6 +126,7 @@ export const populateFavorites = () => {
         let randomSrc = `https://media.giphy.com/media/${res.data.id}/giphy.gif`
         let imgRandom = document.getElementsByClassName('givFav')[0]
         imgRandom.setAttribute('src', randomSrc)
+        storeFavorite(res.data)
         })
         .catch(handleError)
     } else {
