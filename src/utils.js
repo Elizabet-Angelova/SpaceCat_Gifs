@@ -133,7 +133,8 @@ export const populateFavorites = () => {
         // imgRandom.style.borderRadius = "55px"
     }
 
-    
+    let arr2 = JSON.parse(localStorage.getItem("url"))
+    if (arr2 && arr2.length !== 0) {
     for (let el of arr) {
         let imgHolder = document.createElement("div")
         imgHolder.classList.add("imgHolder")
@@ -149,4 +150,5 @@ export const populateFavorites = () => {
 
         $("#favoritesContainer").append(imgHolder)
     }
+}
 }

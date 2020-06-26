@@ -67,7 +67,12 @@ const navigate = () => {
     }
 }
 navigate()
-populateFavorites()
+try {
+    populateFavorites()
+} catch(err) {
+    alert(error.message)
+}
+
 functionTrending(trendingBtn)
 if(localStorage.getItem('tasks') !== null) {
     populateUploaded()
