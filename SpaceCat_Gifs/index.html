@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceCat Gifs</title>
+    <link rel="icon" href="./img/Untitled.png">
+    <link rel="stylesheet" href="./css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Fugaz+One&family=Righteous&family=Ubuntu&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid" id="wrapper">
+        <div>
+            <div class="menuWrapper" id="menuWrapper">
+                <h3 class="menuItem" id="homeBtn" style="justify-self: center;">HOME</h3>
+                <h3 class="menuItem" id="trendingBtn">TRENDING</h3>
+                <h3 class="menuItem" id="uploadBtn">UPLOAD</h3>
+                <h3 class="menuItem" id="mygifsBtn">MY GIFS</h3>
+                <h3 class="menuItem" id="favoriteBtn">FAVORITE</h3>
+                <div class="search">
+                    <i id="fas1" class="fas fa-search"></i> <input id="inputSearch" class="form-control form-control-lg"
+                        type="text" placeholder="Search...">
+                </div>
+            </div>
+            <div id="titleWrapper">
+                <img src="./img/Untitled.png" alt="SPACE CAT *.*" class="rotate">
+                <h1 id="title">SpaceCat Gifs</h1>
+                <h3 id="subtitle">Explore the universe of gifs!</h3>
+            </div>
+
+            <div id="containerSearch" style="display: 'none';">
+
+            </div>
+
+            <div id="containerTrending" style="display: none;">
+
+            </div>
+
+            <div id="containerUpload" style="display: none; ">
+                <div class="planets">
+                    <div class="uploadForm">
+                        <h2 id="titleUpload">Upload Your Own!</h2>
+                        <h5 id="subTitleUpload">Share your purrrfect gifs with SpaceCat Gifs!</h5>
+
+                        <label id="chooseFile" class="custom-file-upload">
+                            <input id="inputUpload" type="file">
+                            <div>CHOOSE FILE</div>
+                        </label>
+                        <span id="isThereAfile">No file chosen</span>
+                        <div>
+                            <div id="upload" class="custom-file-upload">
+                                UPLOAD
+                            </div>
+                            <div class="uploadSuccess" style="display: none;">
+                                Successfully uploaded!
+                            </div>
+                            <div class="uploadFail" style="display: none;">
+                                Upload failed :(
+                            </div>
+                            <div class="uploading" style="display: none;">
+                                Uploading...
+                            </div>
+                        </div>
+                        <div id="gifPreview">
+
+                        </div>
+                    </div>
+                    <img class="planetsImg" src="./img/planets2.png" alt="">
+                    <img class="stars" src="./img/stars.png" alt="">
+                </div>
+            </div>
+
+            <div id="containerMygifs" style="display: none; ">
+                <div id="uploadedGifs">
+
+                </div>
+            </div>
+
+            <div id="containerFavorite" style="display: none; ">
+                <div id="favoritesTitle">
+                    <h2>Save your favorite gifs!</h2>
+                    <h5>SpaceCat will keep them for you so you can access them easier!</h5>
+                    <img class="pointDown" src="./img/tri.png" />
+                </div>
+                <img src="./img/favorite.png" alt="heart background <3" id="catHolder">
+                <img src="" class="givFav" alt="">
+                <div id="favoritesContainer">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://kit.fontawesome.com/6fc0987e9f.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="module" src="./src/navigation.js"></script>
+</body>
+
+</html>

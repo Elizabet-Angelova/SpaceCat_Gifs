@@ -1,0 +1,38 @@
+{
+  "name": "group-5-giphy-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/snaumova/group-5-giphy-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/snaumova/group-5-giphy-project/issues"
+  },
+  "homepage": "https://gitlab.com/snaumova/group-5-giphy-project#readme",
+  "dependencies": {
+    "@types/typescript": "^2.0.0",
+    "eslint": "^7.0.0",
+    "jquery": "^3.5.1",
+    "typescript": "^3.9.2",
+    "typescript-eslint": "0.0.1-alpha.0"
+  },
+  "devDependencies": {
+    "@types/eslint": "^6.8.1",
+    "@types/jquery": "^3.3.38",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.0.0",
+    "eslint-config-google": "^0.14.0",
+    "jquery": "^3.5.1"
+  }
+}
