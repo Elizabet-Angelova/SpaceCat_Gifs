@@ -67,11 +67,12 @@ const navigate = () => {
     }
 }
 navigate()
+populateFavorites()
 functionTrending(trendingBtn)
 if(localStorage.getItem('tasks') !== null) {
     populateUploaded()
 }
-populateFavorites()
+
 searchIcon.addEventListener("click", functionSearch)
 $("#inputSearch").keyup(function (event) {
     if (event.keyCode === 13) {
